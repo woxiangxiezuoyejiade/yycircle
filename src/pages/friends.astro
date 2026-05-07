@@ -1,0 +1,62 @@
+---
+import { Icon } from "astro-icon/components";
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import { friendLinks, friendsPageConfig } from "@/config/friendsConfig";
+
+const links = friendLinks
+	.filter((item) => item.enabled)
+	.sort((a, b) => b.weight - a.weight);
+---
+<MainGridLayout
+	title={friendsPageConfig.title || "友链"}
+	description={friendsPageConfig.description || "研究、工程和写作方向相近的站点收集。"}
+>
+	<section class="card-base w-full p-6 md:p-8">
+		<div class="mb-8 flex flex-col gap-3">
+			<span class="inline-flex w-fit items-center rounded-lg border border-(--line-divider) px-3 py-1 text-sm font-medium text-neutral-700 dark:text-neutral-200">
+				<Icon name="material-symbols:groups-2-outline-rounded" class="mr-2 text-[1.05rem]" />
+				Friends
+			</span>
+			<h1 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+				{friendsPageConfig.title || "友链"}
+			</h1>
+			<p class="max-w-2xl text-sm leading-7 text-neutral-600 dark:text-neutral-300">
+				{friendsPageConfig.description || "研究、工程和写作方向相近的站点收集。"}
+			</p>
+		</div>
+
+		<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+			{links.map((item) => (
+				<a
+					href={item.siteurl}
+					target="_blank"
+					rel="noreferrer"
+					class="rounded-xl border border-(--line-divider) bg-(--card-bg) p-5 transition hover:border-(--primary) hover:-translate-y-0.5"
+				>
+					<div class="mb-4 flex items-start gap-4">
+						<img
+							src={item.imgurl}
+							alt={item.title}
+							class="h-12 w-12 rounded-lg border border-(--line-divider) object-cover"
+						/>
+						<div class="min-w-0">
+							<h2 class="truncate text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+								{item.title}
+							</h2>
+							<p class="mt-1 text-sm leading-6 text-neutral-600 dark:text-neutral-300">
+								{item.desc}
+							</p>
+						</div>
+					</div>
+					<div class="flex flex-wrap gap-2">
+						{item.tags?.map((tag) => (
+							<span class="rounded-md bg-black/5 px-2.5 py-1 text-xs font-medium text-neutral-600 dark:bg-white/8 dark:text-neutral-300">
+								{tag}
+							</span>
+						))}
+					</div>
+				</a>
+			))}
+		</div>
+	</section>
+</MainGridLayout>

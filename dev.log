@@ -1,0 +1,174 @@
+
+> moclab@6.9.4 dev D:\moclab
+> astro dev
+
+[vite] connected.
+[2m00:42:57[22m [34m[types][39m Generated [2m1ms[22m
+[vite] connected.
+[2m00:42:57[22m [34m[content][39m Syncing content
+[2m00:42:57[22m [34m[content][39m Synced content
+[2m00:42:57[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+[2m00:42:57[22m [34m[vite][39m Port 4321 is in use, trying another one...
+[42m[1m astro [22m[49m [32mv6.1.9[39m [2mready in[22m 2764 [2mms[22m
+[2m┃[22m Local    [36mhttp://localhost:4322/[39m
+[2m┃[22m Network  [2muse --host to expose[22m
+[2m00:42:57[22m [32mwatching for file changes...[39m
+[31m[1m02:17:06[22m [ERROR][39m [31m[UnknownFilesystemError][39m 
+  [1mHint:[22m
+[33m    It can be caused by many things, eg. missing permissions or a file not existing we attempt to read. Check the error cause for more details.[39m
+  [1mError reference:[22m
+    [36m[4mhttps://docs.astro.build/en/reference/errors/unknown-filesystem-error/[24m[39m
+  [1mStack trace:[22m
+[2m    at D:\moclab\node_modules\.pnpm\astro@6.1.9_@types+node@25.5.2_jiti@2.6.1_lightningcss@1.32.0_rollup@2.80.0_stylus@0.64.0_ter_wqarcvga44ltygkqnkmnz6q5v4\node_modules\astro\dist\content\mutable-data-store.js:367:13
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+  [1mCaused by:[22m
+[2m  ENOENT: no such file or directory, rename 'D:\moclab\.astro\data-store.json.tmp' -> 'D:\moclab\.astro\data-store.json'
+    at async Object.rename (node:internal/fs/promises:785:10)
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+[2m02:18:24[22m [34m[glob-loader][39m Reloaded data from [32mastro-vercel-deploy.md[39m
+[2m02:19:21[22m [34m[glob-loader][39m Reloaded data from [32mai-agent-notes.md[39m
+[31m[1m02:19:21[22m [ERROR][39m [31m[UnknownFilesystemError][39m 
+  [1mHint:[22m
+[33m    It can be caused by many things, eg. missing permissions or a file not existing we attempt to read. Check the error cause for more details.[39m
+  [1mError reference:[22m
+    [36m[4mhttps://docs.astro.build/en/reference/errors/unknown-filesystem-error/[24m[39m
+  [1mStack trace:[22m
+[2m    at D:\moclab\node_modules\.pnpm\astro@6.1.9_@types+node@25.5.2_jiti@2.6.1_lightningcss@1.32.0_rollup@2.80.0_stylus@0.64.0_ter_wqarcvga44ltygkqnkmnz6q5v4\node_modules\astro\dist\content\mutable-data-store.js:367:13
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+  [1mCaused by:[22m
+[2m  ENOENT: no such file or directory, rename 'D:\moclab\.astro\data-store.json.tmp' -> 'D:\moclab\.astro\data-store.json'
+    at async Object.rename (node:internal/fs/promises:785:10)
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+[2m02:19:48[22m [34m[glob-loader][39m Reloaded data from [32mwhy-moclab.md[39m
+[31m[1m02:19:49[22m [ERROR][39m [31m[UnknownFilesystemError][39m 
+  [1mHint:[22m
+[33m    It can be caused by many things, eg. missing permissions or a file not existing we attempt to read. Check the error cause for more details.[39m
+  [1mError reference:[22m
+    [36m[4mhttps://docs.astro.build/en/reference/errors/unknown-filesystem-error/[24m[39m
+  [1mStack trace:[22m
+[2m    at D:\moclab\node_modules\.pnpm\astro@6.1.9_@types+node@25.5.2_jiti@2.6.1_lightningcss@1.32.0_rollup@2.80.0_stylus@0.64.0_ter_wqarcvga44ltygkqnkmnz6q5v4\node_modules\astro\dist\content\mutable-data-store.js:367:13
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+  [1mCaused by:[22m
+[2m  ENOENT: no such file or directory, rename 'D:\moclab\.astro\data-store.json.tmp' -> 'D:\moclab\.astro\data-store.json'
+    at async Object.rename (node:internal/fs/promises:785:10)
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+[2m02:19:53[22m [34m[glob-loader][39m Reloaded data from [32mwhy-moclab.md[39m
+[2m02:34:05[22m [34m[glob-loader][39m Reloaded data from [32maigc-detection-log.md[39m
+[2m03:11:06[22m [34m[glob-loader][39m Reloaded data from [32mabout.md[39m
+[31m[1m03:31:25[22m [ERROR] [glob-loader][39m Failed to reload blog-system-guide.md: **posts → blog-system-guide** data does not match collection schema.
+
+  **title**: **title**: Required
+  **published**: **published**: Required
+
+[2m03:32:09[22m [34m[glob-loader][39m Reloaded data from [32mblog-system-guide.md[39m
+[2m03:32:17[22m [34m[glob-loader][39m Reloaded data from [32mblog-system-guide.md[39m
+[2m03:32:25[22m [34m[glob-loader][39m Reloaded data from [32mblog-system-guide.md[39m
+[2m03:32:40[22m [34m[glob-loader][39m Reloaded data from [32mblog-system-guide.md[39m
+[2m03:32:40[22m [34m[glob-loader][39m Reloaded data from [32mblog-system-guide.md[39m
+[31m[1m03:32:41[22m [ERROR][39m [31m[UnknownFilesystemError][39m 
+  [1mHint:[22m
+[33m    It can be caused by many things, eg. missing permissions or a file not existing we attempt to read. Check the error cause for more details.[39m
+  [1mError reference:[22m
+    [36m[4mhttps://docs.astro.build/en/reference/errors/unknown-filesystem-error/[24m[39m
+  [1mStack trace:[22m
+[2m    at D:\moclab\node_modules\.pnpm\astro@6.1.9_@types+node@25.5.2_jiti@2.6.1_lightningcss@1.32.0_rollup@2.80.0_stylus@0.64.0_ter_wqarcvga44ltygkqnkmnz6q5v4\node_modules\astro\dist\content\mutable-data-store.js:367:13
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+  [1mCaused by:[22m
+[2m  EPERM: operation not permitted, rename 'D:\moclab\.astro\data-store.json.tmp' -> 'D:\moclab\.astro\data-store.json'
+    at async Object.rename (node:internal/fs/promises:785:10)
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+[2m03:51:45[22m [34m[glob-loader][39m Reloaded data from [32mastro-vercel-deploy.md[39m
+[2m03:53:38[22m [34m[glob-loader][39m Reloaded data from [32mastro-vercel-deploy.md[39m
+[31m[1m03:53:39[22m [ERROR][39m [31m[UnknownFilesystemError][39m 
+  [1mHint:[22m
+[33m    It can be caused by many things, eg. missing permissions or a file not existing we attempt to read. Check the error cause for more details.[39m
+  [1mError reference:[22m
+    [36m[4mhttps://docs.astro.build/en/reference/errors/unknown-filesystem-error/[24m[39m
+  [1mStack trace:[22m
+[2m    at D:\moclab\node_modules\.pnpm\astro@6.1.9_@types+node@25.5.2_jiti@2.6.1_lightningcss@1.32.0_rollup@2.80.0_stylus@0.64.0_ter_wqarcvga44ltygkqnkmnz6q5v4\node_modules\astro\dist\content\mutable-data-store.js:367:13
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+  [1mCaused by:[22m
+[2m  ENOENT: no such file or directory, rename 'D:\moclab\.astro\data-store.json.tmp' -> 'D:\moclab\.astro\data-store.json'
+    at async Object.rename (node:internal/fs/promises:785:10)
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+[2m03:53:51[22m [34m[glob-loader][39m Reloaded data from [32mastro-vercel-deploy.md[39m
+[31m[1m03:53:51[22m [ERROR][39m [31m[UnknownFilesystemError][39m 
+  [1mHint:[22m
+[33m    It can be caused by many things, eg. missing permissions or a file not existing we attempt to read. Check the error cause for more details.[39m
+  [1mError reference:[22m
+    [36m[4mhttps://docs.astro.build/en/reference/errors/unknown-filesystem-error/[24m[39m
+  [1mStack trace:[22m
+[2m    at D:\moclab\node_modules\.pnpm\astro@6.1.9_@types+node@25.5.2_jiti@2.6.1_lightningcss@1.32.0_rollup@2.80.0_stylus@0.64.0_ter_wqarcvga44ltygkqnkmnz6q5v4\node_modules\astro\dist\content\mutable-data-store.js:367:13
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+  [1mCaused by:[22m
+[2m  ENOENT: no such file or directory, rename 'D:\moclab\.astro\data-store.json.tmp' -> 'D:\moclab\.astro\data-store.json'
+    at async Object.rename (node:internal/fs/promises:785:10)
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+[2m17:35:07[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[vite] connected.
+[2m17:35:08[22m [34m[vite][39m server restarted.
+[2m17:35:13[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[vite] connected.
+[2m17:35:13[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[2m17:35:13[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[vite] connected.
+[2m17:35:13[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[2m17:35:13[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[2m17:35:13[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[vite] connected.
+[2m17:35:16[22m [34m[vite][39m server restarted.
+[2m17:35:16[22m [34m[vite][39m server restarted.
+[2m17:35:16[22m [34m[vite][39m 
+[2m17:35:16[22m [34m[vite][39m   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4322[22m/[39m
+[2m17:35:16[22m [34m[vite][39m 
+[2m17:35:16[22m [34m[vite][39m   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4322[22m/[39m
+[2m17:35:16[22m [34m[vite][39m server restarted.
+[2m17:35:16[22m [34m[vite][39m 
+[2m17:35:16[22m [34m[vite][39m   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4322[22m/[39m
+[vite] connected.
+[2m19:06:08[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[vite] connected.
+[2m19:06:08[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[2m19:06:08[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[2m19:06:08[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[2m19:06:08[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[vite] connected.
+[2m19:06:10[22m [34m[vite][39m server restarted.
+[2m19:06:10[22m [34m[vite][39m Port 4322 is in use, trying another one...
+[2m19:06:10[22m [34m[vite][39m server restarted.
+[2m19:06:10[22m [34m[vite][39m 
+[2m19:06:10[22m [34m[vite][39m   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4323[22m/[39m
+[2m19:06:10[22m [34m[vite][39m 
+[2m19:06:10[22m [34m[vite][39m   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4323[22m/[39m
+[2m19:06:14[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[vite] connected.
+[2m19:06:15[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[2m19:06:15[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[vite] connected.
+[2m19:06:17[22m [34m[vite][39m server restarted.
+[2m19:06:17[22m [34m[vite][39m server restarted.
+[2m19:06:17[22m [34m[vite][39m 
+[2m19:06:17[22m [34m[vite][39m   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4323[22m/[39m
+[vite] connected.
+[2m19:23:58[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[vite] connected.
+[2m19:23:58[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[2m19:23:58[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[vite] connected.
+[2m19:23:58[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[2m19:23:58[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[2m19:23:58[22m [34m[vite][39m [32m.env changed, restarting server...[39m
+[vite] connected.
+[2m19:24:01[22m [34m[vite][39m server restarted.
+[2m19:24:01[22m [34m[vite][39m server restarted.
+[2m19:24:01[22m [34m[vite][39m 
+[2m19:24:01[22m [34m[vite][39m   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4323[22m/[39m
+[2m19:24:01[22m [34m[vite][39m 
+[2m19:24:01[22m [34m[vite][39m   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4323[22m/[39m
+[2m19:24:01[22m [34m[vite][39m Port 4323 is in use, trying another one...
+[2m19:24:01[22m [34m[vite][39m Port 4324 is in use, trying another one...
+[2m19:24:01[22m [34m[vite][39m Port 4325 is in use, trying another one...
+[2m19:24:01[22m [34m[vite][39m Port 4326 is in use, trying another one...
+[2m19:24:01[22m [34m[vite][39m server restarted.
+[2m19:24:01[22m [34m[vite][39m 
+[2m19:24:01[22m [34m[vite][39m   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4327[22m/[39m

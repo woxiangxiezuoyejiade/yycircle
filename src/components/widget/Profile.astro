@@ -1,0 +1,55 @@
+---
+import { Icon } from "astro-icon/components";
+import { profileConfig } from "@/config/profileConfig";
+import { moclabSite } from "@/config/moclabSite";
+---
+
+<div class="card-base p-5">
+  <div class="flex flex-col items-center gap-4 text-center">
+    <a
+      href="/about/"
+      aria-label="关于我"
+      class="group relative aspect-square w-[85%] shrink-0 overflow-hidden rounded-2xl border border-(--line-divider) bg-(--btn-regular-bg) text-2xl font-semibold text-(--btn-content) transition hover:border-(--primary)"
+    >
+      <img
+        src={profileConfig.avatar || ""}
+        alt={profileConfig.name}
+        class="h-full w-full object-cover transition group-hover:scale-105"
+        onerror={`this.style.display='none';this.nextElementSibling?.classList.remove('hidden');`}
+      />
+      <span class="absolute inset-0 hidden items-center justify-center">{profileConfig.avatarFallback || "M"}</span>
+    </a>
+    {profileConfig.signature && (
+      <div class="max-w-xs text-sm leading-6 text-neutral-600 transition dark:text-neutral-300">
+        {profileConfig.signature}
+      </div>
+    )}
+    <div class="flex items-center justify-center gap-2">
+      <a
+        href={moclabSite.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        class="btn-regular flex h-9 w-9 items-center justify-center rounded-xl text-base"
+      >
+        <Icon name="fa7-brands:github" />
+      </a>
+      <a
+        href={moclabSite.email}
+        aria-label="Email"
+        class="btn-regular flex h-9 w-9 items-center justify-center rounded-xl text-base"
+      >
+        <Icon name="fa7-solid:envelope" />
+      </a>
+      <a
+        href={moclabSite.academicSite}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="学术页面"
+        class="btn-regular flex h-9 w-9 items-center justify-center rounded-xl text-base"
+      >
+        <Icon name="material-symbols:school-outline-rounded" />
+      </a>
+    </div>
+  </div>
+</div>

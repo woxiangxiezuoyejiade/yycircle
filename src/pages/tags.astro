@@ -1,0 +1,29 @@
+---
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import { getTagList } from "@/utils/content-utils";
+import { getTagUrl } from "@/utils/url-utils";
+
+const tags = await getTagList();
+---
+
+<MainGridLayout title="Tags" description="Browse writing by tag.">
+	<div class="card-base w-full p-6">
+		<div class="mb-6">
+			<p class="mb-2 text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+				Browse
+			</p>
+			<h1 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">Tags</h1>
+		</div>
+		<div class="flex flex-wrap gap-3">
+			{tags.map((tag) => (
+				<a
+					href={getTagUrl(tag.name)}
+					class="rounded-lg border border-(--line-divider) px-3 py-2 text-sm font-medium text-neutral-700 transition hover:border-(--primary) hover:text-(--primary) dark:text-neutral-200"
+				>
+					#{tag.name}
+					<span class="ml-2 text-xs text-neutral-400">{tag.count}</span>
+				</a>
+			))}
+		</div>
+	</div>
+</MainGridLayout>

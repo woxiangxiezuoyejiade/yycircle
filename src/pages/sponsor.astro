@@ -1,0 +1,76 @@
+---
+import { Icon } from "astro-icon/components";
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import { sponsorConfig } from "@/config/sponsorConfig";
+
+const methods = sponsorConfig.methods.filter((item) => item.enabled);
+---
+<MainGridLayout
+	title={sponsorConfig.title || "赞赏支持"}
+	description={sponsorConfig.description || "支持 MocLab 的持续写作与研究记录。"}
+>
+	<section class="card-base w-full p-6 md:p-8">
+		<div class="mb-8 flex flex-col gap-3">
+			<span class="inline-flex w-fit items-center rounded-lg border border-(--line-divider) px-3 py-1 text-sm font-medium text-neutral-700 dark:text-neutral-200">
+				<Icon name="material-symbols:volunteer-activism-outline-rounded" class="mr-2 text-[1.05rem]" />
+				Sponsor
+			</span>
+			<h1 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+				{sponsorConfig.title || "赞赏支持"}
+			</h1>
+			<p class="max-w-2xl text-sm leading-7 text-neutral-600 dark:text-neutral-300">
+				{sponsorConfig.description}
+			</p>
+			{sponsorConfig.usage && (
+				<p class="max-w-2xl text-sm leading-7 text-neutral-500 dark:text-neutral-400">
+					{sponsorConfig.usage}
+				</p>
+			)}
+		</div>
+
+		<div class="grid gap-4 lg:grid-cols-3">
+			{methods.map((method) => (
+				<div class="rounded-xl border border-(--line-divider) bg-(--card-bg) p-5">
+					<div class="mb-4 flex items-center gap-3">
+						{method.icon && (
+							<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-black/5 text-lg text-neutral-700 dark:bg-white/8 dark:text-neutral-200">
+								<Icon name={method.icon} />
+							</div>
+						)}
+						<div>
+							<h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+								{method.name}
+							</h2>
+							{method.description && (
+								<p class="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
+									{method.description}
+								</p>
+							)}
+						</div>
+					</div>
+
+					{method.qrCode ? (
+						<img
+							src={method.qrCode}
+							alt={`${method.name} QR Code`}
+							class="mx-auto aspect-square w-full max-w-[220px] rounded-lg border border-(--line-divider) object-cover"
+						/>
+					) : method.link ? (
+						<a
+							href={method.link}
+							target="_blank"
+							rel="noreferrer"
+							class="btn-regular inline-flex h-10 items-center justify-center rounded-lg px-4 text-sm font-medium"
+						>
+							前往 {method.name}
+						</a>
+					) : (
+						<p class="text-sm text-neutral-500 dark:text-neutral-400">
+							该方式暂未配置跳转链接或收款码。
+						</p>
+					)}
+				</div>
+			))}
+		</div>
+	</section>
+</MainGridLayout>

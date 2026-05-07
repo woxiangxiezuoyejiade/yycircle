@@ -1,0 +1,246 @@
+---
+import { Icon } from "astro-icon/components";
+import WidgetLayout from "@/components/common/WidgetLayout.astro";
+import { siteConfig } from "@/config";
+import I18nKey from "@/i18n/i18nKey";
+import { i18n } from "@/i18n/translation";
+import {
+	getCategoryList,
+	getSortedPosts,
+	getTagList,
+} from "@/utils/content-utils";
+
+interface Props {
+	class?: string;
+	style?: string;
+}
+
+const { class: className, style } = Astro.props;
+const siteStartDate = siteConfig.siteStartDate || "2026-05-01";
+const posts = await getSortedPosts();
+const categories = await getCategoryList();
+const tags = await getTagList();
+const todayText = i18n(I18nKey.today);
+const showAnalyticsStats = Boolean(siteConfig.analytics?.umamiAnalytics?.websiteId);
+const siteStatsApiUrl =
+	siteConfig.analytics?.umamiAnalytics?.statsApiUrl || "/api/site-stats";
+const homeEntryEventName =
+	siteConfig.analytics?.umamiAnalytics?.homeEntryEventName || "home-entry";
+const siteTimezone = siteConfig.timezone || "Asia/Shanghai";
+
+let totalWords = 0;
+for (const post of posts) {
+	if (!post.body) continue;
+
+	const text = post.body
+		.replace(/```[\s\S]*?```/g, "")
+		.replace(/`[^`]*`/g, "")
+		.replace(/\s+/g, " ")
+		.trim();
+
+	const chineseChars = text.match(/[\u4e00-\u9fa5]/g) || [];
+	const englishChars = text.match(/[a-zA-Z]/g) || [];
+	totalWords += chineseChars.length + englishChars.length;
+}
+
+function formatNumber(num: number): string {
+	return num.toLocaleString();
+}
+
+const latestPost = posts.reduce((latest, post) => {
+	if (!latest) return post;
+	return post.data.published > latest.data.published ? post : latest;
+}, posts[0]);
+
+const lastPostDate = latestPost
+	? latestPost.data.published.toISOString()
+	: null;
+
+const stats = [
+	...(showAnalyticsStats
+		? [
+				{
+					icon: "material-symbols:today-outline-rounded",
+					label: "今日访客",
+					value: "--",
+					id: "today-visitors",
+				},
+				{
+					icon: "material-symbols:groups-2-outline-rounded",
+					label: "累计访客",
+					value: "--",
+					id: "total-visitors",
+				},
+				{
+					icon: "material-symbols:home-outline-rounded",
+					label: "主页进入",
+					value: "--",
+					id: "home-entries",
+				},
+			]
+		: []),
+	{
+		icon: "material-symbols:article-outline",
+		label: i18n(I18nKey.siteStatsPostCount),
+		value: posts.length,
+	},
+	{
+		icon: "material-symbols:folder-outline",
+		label: i18n(I18nKey.siteStatsCategoryCount),
+		value: categories.length,
+	},
+	{
+		icon: "material-symbols:label-outline",
+		label: i18n(I18nKey.siteStatsTagCount),
+		value: tags.length,
+	},
+	{
+		icon: "material-symbols:text-ad-outline-rounded",
+		label: i18n(I18nKey.siteStatsTotalWords),
+		value: totalWords,
+		formatted: true,
+	},
+	{
+		icon: "material-symbols:calendar-clock-outline",
+		label: i18n(I18nKey.siteStatsRunningDays),
+		value: 0,
+		suffix: i18n(I18nKey.siteStatsDays).replace("{days}", ""),
+		id: "running-days",
+	},
+	{
+		icon: "mingcute:heartbeat-line",
+		label: i18n(I18nKey.siteStatsLastUpdate),
+		value: 0,
+		suffix: i18n(I18nKey.siteStatsDaysAgo).replace("{days}", ""),
+		id: "last-update",
+	},
+];
+---
+
+<WidgetLayout name={i18n(I18nKey.siteStats)} id="site-stats" class={className} style={style}>
+  <div class="flex flex-col gap-2">
+    {stats.map((stat) => (
+      <div class="flex items-center justify-between px-3 py-1.5">
+        <div class="flex items-center gap-2.5">
+          <div class="text-(--primary) text-xl">
+            <Icon name={stat.icon} />
+          </div>
+          <span class="text-neutral-700 dark:text-neutral-300 font-medium text-sm">
+            {stat.label}
+          </span>
+        </div>
+        <div class="flex items-center">
+          <span
+            class="text-base font-bold text-neutral-900 dark:text-neutral-100"
+            data-stat-id={stat.id}
+          >
+            {typeof stat.value === "number" && stat.formatted
+              ? formatNumber(stat.value)
+              : stat.value}
+          </span>
+          {stat.suffix && (
+            <span class="text-sm text-neutral-500 dark:text-neutral-400 ml-1">
+              {stat.suffix}
+            </span>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</WidgetLayout>
+
+<script
+  is:inline
+  define:vars={{
+    siteStartDate,
+    lastPostDate,
+    todayText,
+    showAnalyticsStats,
+    siteStatsApiUrl,
+    homeEntryEventName,
+    siteTimezone,
+  }}
+>
+  function formatStatValue(value) {
+    const numericValue = Number(value);
+    if (Number.isNaN(numericValue)) return "--";
+    return numericValue.toLocaleString();
+  }
+
+  function updateStatValue(id, value) {
+    const elements = document.querySelectorAll(`[data-stat-id="${id}"]`);
+    elements.forEach((element) => {
+      element.textContent = value;
+    });
+  }
+
+  function updateDynamicStats() {
+    const today = new Date();
+    const startDate = new Date(siteStartDate);
+    const diffTime = Math.abs(today.getTime() - startDate.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    updateStatValue("running-days", diffDays.toString());
+
+    if (!lastPostDate) return;
+
+    const lastPost = new Date(lastPostDate);
+    const timeSinceLastPost = Math.abs(today.getTime() - lastPost.getTime());
+    const daysSinceLastUpdate = Math.floor(
+      timeSinceLastPost / (1000 * 60 * 60 * 24)
+    );
+
+    const lastUpdateElements = document.querySelectorAll('[data-stat-id="last-update"]');
+    lastUpdateElements.forEach((element) => {
+      if (daysSinceLastUpdate === 0) {
+        element.textContent = todayText;
+        if (element.nextElementSibling) {
+          element.nextElementSibling.style.display = "none";
+        }
+      } else {
+        element.textContent = daysSinceLastUpdate.toString();
+        if (element.nextElementSibling) {
+          element.nextElementSibling.style.display = "";
+        }
+      }
+    });
+  }
+
+  async function updateAnalyticsStats() {
+    if (!showAnalyticsStats) return;
+
+    try {
+      const apiUrl = new URL(siteStatsApiUrl, window.location.origin);
+      apiUrl.searchParams.set("timezone", siteTimezone);
+      apiUrl.searchParams.set("homeEntryEventName", homeEntryEventName);
+
+      const response = await fetch(apiUrl.toString(), {
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) return;
+
+      const payload = await response.json();
+      if (!payload?.enabled) return;
+
+      updateStatValue("today-visitors", formatStatValue(payload.todayVisitors));
+      updateStatValue("total-visitors", formatStatValue(payload.totalVisitors));
+      updateStatValue("home-entries", formatStatValue(payload.homeEntries));
+    } catch (_error) {
+      // Keep graceful fallback values when stats are unavailable.
+    }
+  }
+
+  function refreshSiteStats() {
+    updateDynamicStats();
+    updateAnalyticsStats();
+  }
+
+  refreshSiteStats();
+
+  document.addEventListener("swup:contentReplaced", () => {
+    setTimeout(refreshSiteStats, 100);
+  });
+
+  document.addEventListener("astro:page-load", refreshSiteStats);
+</script>
