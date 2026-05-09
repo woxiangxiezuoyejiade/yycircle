@@ -24,7 +24,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			position: "sticky",
 			showOnPostPage: true,
 			responsive: {
-				collapseThreshold: 5,
+				collapseThreshold: 7,
 			},
 		},
 		{

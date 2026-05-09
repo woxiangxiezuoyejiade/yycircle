@@ -15,7 +15,7 @@ const homeEntryEventName =
 export const siteConfig: SiteConfig = {
 	title: moclabSite.siteName,
 	subtitle: moclabSite.blogTagline,
-	site_url: "https://www.moclab.top",
+	site_url: "https://yycircle.top",
 	description: moclabSite.description,
 	keywords: [
 		"MocLab",

@@ -58,14 +58,11 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		homeText: {
 			enable: true,
 			switchable: true,
-			title: "MocLab",
+			title: "YYCircle空间",
 			titleSize: "3.8rem",
 			subtitle: [
-				"AI Agents · AI Security · AIGC Detection · Systems",
-				"Build, break, and document.",
-				"Trace what models do, defend what we ship.",
-				"Notes from research, papers, and engineering practice.",
-				"妈妈,人生不是旷野。",
+				"xxxxx",
+				
 			],
 			subtitleSize: "1.5rem",
 			typewriter: {

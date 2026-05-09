@@ -3,7 +3,7 @@ title: "About MocLab"
 description: "About Zhongxu / Moc and the purpose of MocLab."
 ---
 
-# Zhongxu / Moc
+# Qiuke / Moc
 
 Computer Science Graduate Student
 

@@ -1,14 +1,14 @@
 import type { NavBarLink, ProfileConfig } from "@/types/config";
 
 export const moclabSite = {
-	siteName: "MocLab",
-	name: "Zhongxu / Moc",
-	identity: "Computer Science Graduate Student",
-	blogTagline: "妈妈，人生不是旷野",
+	siteName: "YYCircle空间",
+	name: "Qiuke / YY",
+	identity: "山大女生",
+	blogTagline: "妈妈，",
 	description:
 		"A personal research and engineering space for AI Agents, AI Security, AIGC Detection, Model Attribution, RAG, Memory Systems, and AI System Evaluation.",
 	chineseDescription:
-		"MocLab 是 Zhongxu / Moc 的个人技术与学术空间，用于记录 AI Agent、AI 安全、AIGC 检测、模型溯源、系统评测、论文阅读、工程实践和项目复盘。",
+		"YYCircle空间是c 的个人技术与学术空间，用于记录山大女生的日常生活、学习和研究q。",
 	blogBio:
 		"I document research notes, engineering experiments, paper reading, and open-source projects around AI Agents, AI Security, AIGC Detection, and System Practice.",
 	avatar: "/assets/images/icon3.jpg",

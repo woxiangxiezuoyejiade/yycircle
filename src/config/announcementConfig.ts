@@ -4,7 +4,7 @@ import { moclabSite } from "./moclabSite";
 export const announcementConfig: AnnouncementConfig = {
 	title: "公告",
 	content:
-		"欢迎来到 MocLab。这里记录 AI Agent、AI 安全、AIGC 检测、系统实验、论文阅读与工程实践。",
+		"欢迎来到 yycircle空间。这里记录山大女生日常生活",
 	closable: true,
 	link: {
 		enable: true,

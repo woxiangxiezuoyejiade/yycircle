@@ -10,12 +10,12 @@ export const friendsPageConfig: FriendsPageConfig = {
 
 export const friendLinks: FriendLink[] = [
 	{
-		title: "OpenAI",
+		title: "MocLab",
 		imgurl: "/favicon/Mm.png",
-		desc: "AI systems, models, safety, and developer tooling.",
-		siteurl: "https://openai.com/",
-		tags: ["AI", "Research"],
-		weight: 10,
+		desc: "MocLab空间",
+		siteurl: "https://moclab.top/",
+		tags: ["good", "Research"],
+		weight: 2,
 		enabled: true,
 	},
 	{
@@ -25,6 +25,15 @@ export const friendLinks: FriendLink[] = [
 		siteurl: "https://astro.build/",
 		tags: ["Web", "Framework"],
 		weight: 9,
+		enabled: true,
+	},
+	{
+		title: "Vercel",
+		imgurl: "/favicon/Mm.png",
+		desc: "Deployment platform for fast iteration and previews.",
+		siteurl: "https://vercel.com/",
+		tags: ["Deploy", "Platform"],
+		weight: 8,
 		enabled: true,
 	},
 	{
