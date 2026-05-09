@@ -18,7 +18,7 @@ export const siteConfig: SiteConfig = {
 	site_url: "https://yycircle.top",
 	description: moclabSite.description,
 	keywords: [
-		"MocLab",
+		"Yycircle",
 		"AI Agents",
 		"AI Security",
 		"AIGC Detection",
